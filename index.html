@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+    <title>Project Pacman</title>
+</head>
+
+<body>
+<div id="container">
+
+    <div id="save">
+        <div id="save-info">Save your game</div>
+        <div id="save-1" class="save-div"></div>
+        <div id="save-2" class="save-div"></div>
+        <div id="save-3" class="save-div"></div>
+        <div id="save-button-div">
+            <div>
+                <button id="on-main-menu">Main menu</button>
+            </div>
+            <div>
+                <button id="continue-button">Continue</button>
+            </div>
+        </div>
+    </div>
+    <div id="download">
+        <div id="download-info">Download game</div>
+        <div id="download-1" class="save-div"></div>
+        <div id="download-2" class="save-div"></div>
+        <div id="download-3" class="save-div"></div>
+        <button id="on-main-menu-down">Main menu</button>
+    </div>
+    <div id='gameArea'>
+        <div id="buttons-div">
+            <div>
+                <button id="main-menu-button">Main</button>
+            </div>
+            <div>
+                <button id="save-button">Save</button>
+            </div>
+            <div>
+                <button id="sound-button">Sound</button>
+            </div>
+            <div>
+                <button id="pause-button">Pause</button>
+            </div>
+
+        </div>
+        <div id="sign-div"></div>
+        <div id="not-div">swipe or press Enter</div>
+        <canvas id="canvas" width="700" height="700">Canvas here</canvas>
+        <div id="info-div">
+            <div id="level"></div>
+            <div id="lives"></div>
+            <div id="score"></div>
+        </div>
+
+        <audio src="sound/dead.mp3" id="dead" preload></audio>
+        <audio src="sound/food.mp3" id="food" preload></audio>
+        <audio src="sound/complete.mp3" id="complete" preload></audio>
+        <audio src="sound/gameOver.mp3" id="game-over" preload></audio>
+        <audio src="sound/win.mp3" id="win" preload></audio>
+        <audio src="sound/myzuka.ru_05_international_deadline_lifestyle.mp3" id="sound"preload loop></audio>
+
+        <div id="write-result">
+            <div id="write-result-info">Enter your name</div>
+            <input id="player-name" type="text" maxlength="17">
+            <button id="result-button">OK</button>
+        </div>
+    </div>
+    <div id="best-results">
+        <div id="result-div">
+            <div id="result-info">Best results:</div>
+            <div id="result1" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result2" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result3" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result4" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result5" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result6" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result7" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result8" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result9" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+            <div id="result10" class="result">
+                <div class="best-name"></div>
+                <div class="best-score"></div>
+            </div>
+        </div>
+        
+        <button id="on-main-menu-result">Main menu</button>
+    </div>
+    <div id="main">
+        <div class="main-image">
+            <div class="pacman-image"></div>
+            <div class="ghost-image"></div>
+        </div>
+        <div id="main-buttons">
+            <button id="game-button">New game</button>
+            <button id="download-button">Download game</button>
+            <button id="best-results-button">Best results</button>
+        </div>
+    </div>
+</div>
+
+<script src = "js/new-main.js">
+</script>
+</body>
+</html>

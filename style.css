@@ -1,0 +1,485 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#gameArea {
+    display: none;
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+}
+
+#canvas {
+    position: absolute;
+}
+
+#info-div,
+#buttons-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+}
+
+#info-div {
+    bottom: 2%;
+    font-size: 4vmin;
+    color: white;
+}
+
+#buttons-div {
+    top: 2%;
+    font-size: 3vmin;
+}
+
+#info-div div,
+#buttons-div div {
+    width: 25%;
+    height: 2%;
+    text-align: center;
+}
+
+#buttons-div button {
+    width: 80%;
+    font-size: 2.5vmin;
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+}
+
+#sign-div {
+    z-index: 1;
+    width: 40%;
+    height: auto;
+    background-color: yellowgreen;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    display: none;
+    font-size: 7vmin;
+    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px black;
+}
+
+#sign-div.visible,
+#not-div.visible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#not-div.visible {
+    animation: not-div-animation 1s infinite;
+}
+
+#not-div {
+    z-index: 1;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 3.5vmin;
+    color: red;
+    bottom: 9.5%;
+    font-weight: bold;
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    height: 4vh;
+    line-height: 4vh;
+    display: none;
+}
+
+@keyframes not-div-animation {
+    from {
+        color: red;
+    }
+    50% {
+        color: white;
+    }
+    to {
+        color: red;
+    }
+}
+
+#sign-div.big {
+    width: 80%;
+    height: 30%;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+    background-color: darkmagenta;
+    position: relative;
+}
+
+#container {
+    background-color: darkblue;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.main-image {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    right: 50%;
+    top: 10%;
+    transform: translateX(50%);
+    animation: move-image 3s;
+}
+
+@keyframes move-image {
+    from {
+        opacity: 0;
+        right: 80%;
+    }
+    to {
+        opacity: 1;
+        right: 50%;
+    }
+}
+
+@keyframes move-ghost {
+    from {
+        opacity: 0;
+        left: 0;
+    }
+    to {
+        opacity: 1;
+        left: 25%;
+    }
+}
+
+.pacman-image {
+    width: 30%;
+    height: 30vh;
+    background-image: url("image/pacman.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 45%;
+    top: 30%;
+}
+
+.ghost-image {
+    width: 30%;
+    height: 30vh;
+    background-image: url("image/ghost.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 25%;
+    top: 15%;
+    animation: move-ghost 4s;
+}
+
+#main-buttons button {
+    display: block;
+    width: 25vw;
+    height: 5vh;
+    margin-bottom: 1vh;
+    font-size: 3vmin;
+    transition-property: box-shadow, color, background-color;
+    transition-duration: 2s;
+    box-sizing: border-box;
+}
+
+#main-buttons button:hover {
+    background-color: blue;
+    border-color: blue;
+    box-shadow: 2px 2px 5px black;
+    color: white;
+}
+
+#main-buttons {
+    position: absolute;
+    right: 50%;
+    top: 60%;
+    transform: translateX(50%);
+    animation: move-button 3s;
+}
+
+#save,
+#download,
+#best-results {
+    position: absolute;
+    transform: translate(50%, 50%);
+    right: 50%;
+    bottom: 50%;
+    width: 40vw;
+    text-align: center;
+}
+
+#save .save-div,
+#download .save-div {
+    height: 10vh;
+    border: 2px solid yellowgreen;
+    margin-bottom: 5%;
+    font-size: 5vmin;
+    color: white;
+    text-align: center;
+    line-height: 10vh;
+    text-shadow: 1px 1px 5px black;
+}
+
+#save .save-div:hover,
+#download .save-div:hover {
+    background-color: black;
+    opacity: .8;
+}
+
+#save-info,
+#download-info,
+#result-info {
+    color: white;
+    text-shadow: 1px 1px 5px black;
+    text-align: center;
+    font-size: 7vmin;
+    margin-bottom: 5%;
+}
+
+#save-button-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#save-button-div div {
+    width: 50%;
+    text-align: center;
+}
+
+#save-button-div button,
+#on-main-menu-down,
+#on-main-menu-result {
+    width: 30%;
+    min-width: 175px;
+    height: 5vh;
+    font-size: 3vmin;
+    background-color: yellowgreen;
+    border-color: black;
+    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px black;
+    text-shadow: 1px 1px 1px white;
+}
+
+#save-button-div button:hover,
+#on-main-menu-down:hover,
+#on-main-menu-result:hover {
+    background-color: yellow;
+}
+
+.line-through-text {
+    text-decoration: line-through;
+}
+
+#result-div {
+    margin-bottom: 5%;
+}
+
+#result-div .result {
+    width: 100%;
+    height: 5vh;
+    line-height: 5vh;
+    background-color: green;
+    margin-bottom: 1vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 4vmin;
+    box-shadow: 1px 1px 5px black;
+    text-shadow: 1px 1px 2px black;;
+}
+
+#result-div .best-name {
+    width: 80%;
+    color: white;
+}
+
+#result-div .best-score {
+    color: yellow;
+}
+
+#write-result {
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+    display: none;
+    background-color: blue;
+    width: 30vw;
+    height: 20vh;
+}
+
+#write-result.visible {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#player-name,
+#result-button {
+    margin: auto;
+}
+
+#player-name {
+    width: 90%;
+    height: 25%;
+    font-size: 4vmin;
+}
+
+#write-result-info {
+    font-size: 5vmin;
+}
+
+#result-button {
+    font-size: 3vmin;
+}
+
+#result-button:hover {
+    background-color: grey;
+    border-color: grey;
+}
+
+#result-div .new-result {
+    animation: result-animation 2s infinite;
+}
+
+@keyframes result-animation {
+    from {
+        background-color: red;
+    }
+    50% {
+        background-color: green;
+    }
+    to {
+        background-color: red;
+    }
+}
+
+@media (max-width: 1024px) {
+    #main-buttons button {
+        width: 35vw;
+    }
+
+    .main-image {
+        width: 70%;
+        height: 70%;
+        top: 7%;
+    }
+
+    #download #download-info,
+    #save #save-info,
+    #result-info {
+        font-size: 6vmin;
+    }
+
+    #download,
+    #save,
+    #best-results {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 720px) {
+    .main-image {
+        animation: none;
+        width: 90%;
+    }
+
+    .ghost-image {
+        animation: none;
+    }
+
+    #main-buttons button {
+        width: 45vw;
+        font-size: 3.8vmin;
+    }
+
+    #download button,
+    #save button,
+    #best-results button {
+        min-width: 125px;
+    }
+
+    #not-div {
+        height: 3.5vh;
+        line-height: 3.5vh;
+        font-size: 3.2vmin;
+        bottom: 10%;
+    }
+}
+
+@media (max-width: 414px) {
+    #main-buttons button {
+        width: 60vw;
+        font-size: 5vmin;
+    }
+
+    .main-image {
+        width: 90%;
+        height: 60%;
+        top: 3%;
+        right: 54%;
+    }
+
+    .pacman-image {
+        width: 40%;
+    }
+
+    .ghost-image {
+        width: 40%;
+    }
+
+    #buttons-div button {
+        font-size: 3vmin;
+        border-width: 1px;
+    }
+
+    #download,
+    #save,
+    #best-results {
+        width: 80vw;
+    }
+
+    #download .save-div,
+    #save .save-div {
+        font-size: 7vmin;
+        height: 7vh;
+        line-height: 7vh;
+    }
+
+    #best-results .result {
+        font-size: 6vmin;
+    }
+
+    #download #download-info,
+    #save #save-info,
+    #best-results #result-info {
+        font-size: 8vmin;
+    }
+
+    #download button,
+    #save button,
+    #best-results button {
+        min-width: 105px;
+        font-size: 4.3vmin;
+    }
+
+    #not-div {
+        height: 2.5vh;
+        line-height: 2.5vh;
+        font-size: 3.5vmin;
+    }
+}
+
+@media (max-width: 320px) {
+    #download button,
+    #save button {
+        font-size: 5vmin;
+    }
+}
